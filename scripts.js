@@ -6,7 +6,7 @@ const convertValues = async() => { //função: converter do real para o dólar o
     const realValueText = document.getElementById('real-value-text')
     const currencyValueText = document.getElementById('currency-value-text')
 
-    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(Response /*pode ser qualquer nome*/ => Response.json()/*formado dos dados*/)
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(Response /*pode ser qualquer nome*/ => Response.json()/*formato dos dados*/)
 
     const dolar = data.USDBRL.high
     const euro = data.EURBRL.high
@@ -17,22 +17,20 @@ const convertValues = async() => { //função: converter do real para o dólar o
     realValueText.innerHTML = new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL'
-        }).format(inputReais)
+    }).format(inputReais)
 
     if (select.value === "US$ Dólar americano") {
-        currencyValueText.innerHTML = new Intl.NumberFormat('en-US',
-            {
+        currencyValueText.innerHTML = new Intl.NumberFormat('en-US', {
                 style: 'currency',
                 currency: 'USD'
-            }).format(inputReais / dolar)
+        }).format(inputReais / dolar)
     }
 
     if (select.value === "€ Euro") {
-        currencyValueText.innerHTML = new Intl.NumberFormat('de-DE',
-            {
+        currencyValueText.innerHTML = new Intl.NumberFormat('de-DE', {
                 style: 'currency',
                 currency: 'EUR'
-            }).format(inputReais / euro)
+        }).format(inputReais / euro)
     }
 
     if (select.value === "Bitcoin") {
@@ -64,4 +62,4 @@ changeCurrency = () => { //verifica se o select é dólar ou euro e muda a image
 
 //ouvidor de eventos
 button.addEventListener('click', convertValues) //qdo button é clicado chama a função convertValues
-select.addEventListener('change', changeCurrency) //qdo select troca de valor chama a funçãochangeCurrency
+select.addEventListener('change', changeCurrency) //qdo select troca de valor chama a função changeCurrency

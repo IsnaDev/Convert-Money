@@ -10,15 +10,15 @@
 
 body {
     background: #E5E5E5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
     Width: 375px;
     background-color: #F4F4F4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 header {
@@ -134,7 +134,4 @@ section {
     color: #1B83E2;
     font-weight: 700;
     font-size: 20px;
-}
-
-.arrow-img {
 }
